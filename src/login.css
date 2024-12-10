@@ -1,0 +1,111 @@
+/* Ensure body takes full height and is centered for the login page */
+body.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    margin: 0; /* Remove default margin */
+    background-color: #7B68EE; /* Optional: add background color */
+}
+
+/* Ensure styles apply only to the login page by scoping them to the login-container class */
+.login-page .login-container {
+    background-color: white;
+    border-radius: 8px;
+    padding: 40px;
+    width: 100%;
+    max-width: 400px; /* Maximum width of login box */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    box-sizing: border-box; /* Ensures padding does not affect width */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the content inside the login box */
+}
+
+/* Form Styling */
+.login-page .login-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Add space between inputs and button */
+    width: 100%; /* Ensure form takes the full width */
+}
+
+/* Input Fields */
+.login-page .login-container input[type="email"],
+.login-page .login-container input[type="password"] {
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    outline: none;
+}
+
+.login-page .login-container input[type="email"]:focus,
+.login-page .login-container input[type="password"]:focus {
+    border-color: #0056b3;
+}
+
+/* Error Message */
+.login-page .login-container .error {
+    color: #d9534f;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+/* Submit Button */
+.login-page .login-container button {
+    padding: 12px;
+    background-color: #0056b3;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-page .login-container button:hover {
+    background-color: #003d7a;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .login-page .login-container {
+        max-width: 350px; /* Slightly smaller max-width for tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .login-page .login-container {
+        max-width: 90%; /* Adjust to 90% of the screen width for smaller tablets/large phones */
+        padding: 20px;
+    }
+
+    .login-page .login-container input[type="email"],
+    .login-page .login-container input[type="password"] {
+        font-size: 14px; /* Slightly smaller font size on smaller devices */
+    }
+
+    .login-page .login-container button {
+        font-size: 14px; /* Slightly smaller button font size */
+    }
+}
+
+@media (max-width: 500px) {
+    .login-page .login-container {
+        max-width: 90%; /* Adjust to 90% of the screen width for very small devices */
+        padding: 15px;
+    }
+
+    .login-page .login-container input[type="email"],
+    .login-page .login-container input[type="password"] {
+        font-size: 14px; /* Adjust the font size */
+    }
+
+    .login-page .login-container button {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
