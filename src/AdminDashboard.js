@@ -1,48 +1,56 @@
 import React, { useState } from "react";
 import { FaBars, FaBell, FaUserCircle } from "react-icons/fa";
+import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css"; // Add your custom styles
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 const AdminDashboard = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true); // State for sidebar visibility
 
   const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
+    setIsSidebarOpen(!isSidebarOpen); // Toggle the sidebar open/close
   };
+  
+  const navigate = useNavigate();
+  const handleAddNewAppointment = () => {
+    navigate("/add-new-appointment"); // Navigate to the Add New Appointment page
+  };
+
+  const handleViewPOC = () => {
+    navigate("/departments");
+  }
 
   return (
     <div className="d-flex">
       {/* Sidebar */}
-      <div
-        className={`sidebar bg-primary text-white p-3 ${isSidebarOpen ? "" : "collapsed"}`}
-      >
+      <div className={`sidebar ${isSidebarOpen ? "open" : "collapsed"}`}>
         <div className="sidebar-header mb-4">
           <h4>MIOT ADMIN</h4>
         </div>
         <ul className="list-unstyled">
           <li className="mb-3">
-            <a href="#" className="text-white text-decoration-none">Dashboard</a>
+            <a href="#" className="text-black text-decoration-none">Dashboard</a>
           </li>
           <li className="mb-3">
-            <a href="#" className="text-white text-decoration-none">Appointments</a>
+            <a href="#" className="text-black text-decoration-none">Appointments</a>
           </li>
           <li className="mb-3">
-            <a href="#" className="text-white text-decoration-none">Doctors</a>
+            <a href="#" className="text-black text-decoration-none">Doctors</a>
           </li>
           <li className="mb-3">
-            <a href="#" className="text-white text-decoration-none">Clients</a>
+            <a href="#" className="text-black text-decoration-none">Clients</a>
           </li>
           <li className="mb-3">
-            <a href="#" className="text-white text-decoration-none">Reports</a>
+            <a href="#" className="text-black text-decoration-none">Reports</a>
           </li>
           <li>
-            <a href="#" className="text-white text-decoration-none">Settings</a>
+            <a href="#" className="text-black text-decoration-none">Settings</a>
           </li>
         </ul>
       </div>
 
       {/* Main Content */}
-      <div className="flex-grow-1">
+      <div className={`main-content ${isSidebarOpen ? "" : "full-width"}`}>
         {/* Header */}
         <header className="bg-light d-flex justify-content-between align-items-center p-3 shadow-sm">
           <button className="btn btn-primary" onClick={toggleSidebar}>
@@ -73,11 +81,11 @@ const AdminDashboard = () => {
           </div>
         </header>
 
-        {/* Dashboard Widgets */}
+        {/* Dashboard Content */}
         <main className="p-4">
           <h1>Welcome, Admin</h1>
           <p>Use the navigation to manage the hospital system.</p>
-          
+
           {/* Dashboard Widgets */}
           <div className="row">
             <div className="col-md-3 mb-4">
@@ -113,13 +121,18 @@ const AdminDashboard = () => {
           <div className="row">
             <div className="col-md-6 mb-4">
               <div className="widget p-4 bg-primary text-white rounded shadow-sm">
-                <button className="btn btn-light w-100">Add New Appointment</button>
+                <button className="btn btn-light w-100" onClick={handleAddNewAppointment}>Add New Appointment</button>
               </div>
             </div>
 
             <div className="col-md-6 mb-4">
               <div className="widget p-4 bg-success text-white rounded shadow-sm">
                 <button className="btn btn-light w-100">Update Doctors' Availability</button>
+              </div>
+            </div>
+            <div className="col-md-6 mb-4">
+              <div className="widget p-4 bg-danger text-white rounded shadow-sm">
+                <button className="btn btn-light w-100" onClick={handleViewPOC}>View POC</button>
               </div>
             </div>
           </div>

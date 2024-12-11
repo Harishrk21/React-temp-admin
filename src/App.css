@@ -1,11 +1,11 @@
 /* Sidebar Styles */
 .sidebar {
   min-width: 250px;
-  transition: all 0.3s;
+  transition: all 0.3s ease-in-out;
 }
 
 .sidebar.collapsed {
-  min-width: 80px;
+  min-width: 80px; /* Reduced width when collapsed */
   overflow: hidden;
 }
 
@@ -14,56 +14,11 @@
   font-weight: bold;
 }
 
-/* Main Content Styles */
-main {
-  background-color: #f8f9fa;
-  min-height: 100vh;
+/* Adjust the content when the sidebar is collapsed */
+.main-content.full-width {
+  margin-left: 0; /* Adjust layout when sidebar is collapsed */
 }
 
-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-/* Widget Styles */
-.widget {
-  background-color: #f8f9fa;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.widget h4 {
-  margin-bottom: 1rem;
-}
-
-.widget p {
-  font-size: 2rem;
-  font-weight: bold;
-}
-
-/* Contact Support */
-.contact-support {
-  background-color: #f9f9f9;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.contact-support h4 {
-  margin-bottom: 1rem;
-}
-
-.contact-support button {
-  background-color: #dc3545;
-  color: white;
-  font-size: 1.1rem;
-  padding: 10px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.contact-support button:hover {
-  background-color: #c82333;
+.main-content {
+  transition: margin-left 0.3s ease-in-out;
 }

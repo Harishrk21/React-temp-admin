@@ -1,0 +1,43 @@
+/* Wrapper Styles */
+.view-appointments-page {
+    max-width: 1200px;
+    margin: 40px auto;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.view-appointments-page h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.view-appointments-page .poc-details {
+    margin-bottom: 20px;
+}
+
+.view-appointments-page table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.view-appointments-page th,
+.view-appointments-page td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.view-appointments-page th {
+    background-color: #f0f0f0;
+}
+
+.view-appointments-page tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.view-appointments-page tbody tr:hover {
+    background-color: #ddd;
+}
+
